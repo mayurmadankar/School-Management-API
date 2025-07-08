@@ -1,0 +1,24 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import SchoolRouter from "./routes/schoolRoutes.js";
+dotenv.config();
+
+const server = express();
+
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(cors());
+
+server.get("/", (req, res) => {
+  res.send("Welcome to the Educase Backend API");
+});
+
+server.use("/api/schools", SchoolRouter);
+
+server.listen(process.env.PORT || 3000, () => {
+  console.log(`Server is running on port ${process.env.PORT || 3000}`);
+  connectDB();
+});
+export default server;
