@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import connectDB from "./config/db.js";
-import SchoolRouter from "./routes/schoolRoutes.js";
+import connectDB from "./src/config/db.js";
+import SchoolRouter from "./src/routes/schoolRoutes.js";
 dotenv.config();
 
 const server = express();
